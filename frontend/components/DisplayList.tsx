@@ -47,12 +47,12 @@ const CategoryList: React.FC = () => {
   const [newItemName, setNewItemName] = useState<string>("");
   const [newItemImage, setNewItemImage] = useState<string>("");
   const [newItemDescription, setNewItemDescription] = useState<string>("");
-  const [newItemTaxApplicability, setNewItemTaxApplicability] =
-    useState<boolean>(false);
+  // const [newItemTaxApplicability, setNewItemTaxApplicability] =
+  //   useState<boolean>(false);
   const [newItemTax, setNewItemTax] = useState<number>(0);
   const [newItemBaseAmount, setNewItemBaseAmount] = useState<number>(0);
   const [newItemDiscount, setNewItemDiscount] = useState<number>(0);
-  const [newItemTotalAmount, setNewItemTotalAmount] = useState<number>(0);
+  // const [newItemTotalAmount, setNewItemTotalAmount] = useState<number>(0);
   const [updatedSubCategoryName, setUpdatedSubCategoryName] = useState<string>("");
   // const [updatedItemName, setUpdatedItemName] = useState<string>("");
 
@@ -239,11 +239,11 @@ const CategoryList: React.FC = () => {
           name: newItemName,
           image: newItemImage,
           description: newItemDescription,
-          taxApplicability: newItemTaxApplicability,
+          // taxApplicability: newItemTaxApplicability,
           tax: newItemTax,
           baseAmount: newItemBaseAmount,
           discount: newItemDiscount,
-          totalAmount: newItemTotalAmount,
+          totalAmount: 100,
           subCategoryId,
           categoryId: currentCategory?._id,
         }),
