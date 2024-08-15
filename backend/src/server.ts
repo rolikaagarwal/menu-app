@@ -10,7 +10,7 @@ import cors from 'cors';
 const app = express();
 const PORT = process.env.PORT || 3000;
 const source = process.env.MONGO_URI || "";
-const allowedOrigins = ['http://localhost:3000', 'https://menu-app-frontend.vercel.app/'];
+const allowedOrigins = ['http://localhost:3000', 'https://menu-app-frontend.vercel.app'];
 
 app.use(cors({
   origin: function (origin, callback) {
