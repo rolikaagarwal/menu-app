@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FaEdit, FaTrashAlt, FaPlus } from "react-icons/fa";
 import Modal from "react-modal";
+import { BASE_URL } from "../constants";
 
 interface Category {
   _id: string;
@@ -56,7 +57,7 @@ const CategoryList: React.FC = () => {
   // const [updatedItemName, setUpdatedItemName] = useState<string>("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/categories", {
+    fetch(`${BASE_URL}/api/categories`, {
       method: "GET",
       credentials: "include",
     })
@@ -79,14 +80,14 @@ const CategoryList: React.FC = () => {
   useEffect(() => {
     const fetchSubCategoryById = async (id: string) => {
       const response = await fetch(
-        `http://localhost:5000/api/subcategories/${id}`
+        `${BASE_URL}/api/subcategories/${id}`
       );
       const data = await response.json();
       return data;
     };
 
     const fetchItemById = async (id: string) => {
-      const response = await fetch(`http://localhost:5000/api/items/${id}`);
+      const response = await fetch(`${BASE_URL}/api/items/${id}`);
       const data = await response.json();
       return data;
     };
@@ -123,7 +124,7 @@ const CategoryList: React.FC = () => {
   const handleDeleteCategory = async (id: string) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/categories/${id}`,
+        `${BASE_URL}/api/categories/${id}`,
         {
           method: "DELETE",
           credentials: "include",
@@ -142,7 +143,7 @@ const CategoryList: React.FC = () => {
   const handleEditCategory = async (id: string) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/categories/${id}`,
+        `${BASE_URL}/api/categories/${id}`,
         {
           method: "PUT",
           credentials: "include",
@@ -170,7 +171,7 @@ const CategoryList: React.FC = () => {
 
   const handleAddCategory = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/categories", {
+      const response = await fetch(`${BASE_URL}/api/categories`, {
         method: "POST",
         credentials: "include",
         headers: {
@@ -192,7 +193,7 @@ const CategoryList: React.FC = () => {
 
   const handleAddSubCategory = async (categoryId: string) => {
     try {
-      const response = await fetch("http://localhost:5000/api/subcategories", {
+      const response = await fetch(`${BASE_URL}/api/subcategories`, {
         method: "POST",
         credentials: "include",
         headers: {
@@ -228,7 +229,7 @@ const CategoryList: React.FC = () => {
 
   const handleAddItem = async (subCategoryId: string) => {
     try {
-      const response = await fetch("http://localhost:5000/api/items", {
+      const response = await fetch(`${BASE_URL}/api/items`, {
         method: "POST",
         credentials: "include",
         headers: {
@@ -289,7 +290,7 @@ const CategoryList: React.FC = () => {
   const handleEditSubCategory = async (id: string) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/subcategories/${id}`,
+        `${BASE_URL}/api/subcategories/${id}`,
         {
           method: "PUT",
           credentials: "include",
@@ -316,7 +317,7 @@ const CategoryList: React.FC = () => {
   const handleDeleteSubCategory = async (id: string) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/subcategories/${id}`,
+        `${BASE_URL}/api/subcategories/${id}`,
         {
           method: "DELETE",
           credentials: "include",
