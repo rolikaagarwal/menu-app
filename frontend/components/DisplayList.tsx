@@ -278,6 +278,10 @@ const CategoryList: React.FC = () => {
     setModalType(type);
     setCurrentCategory(category);
     setCurrentSubCategory(subCategory);
+
+    if (type === "editSubCategory" && subCategory) {
+      setUpdatedSubCategoryName(subCategory.name); 
+    }
     setIsModalOpen(true);
   };
 
@@ -416,6 +420,9 @@ const CategoryList: React.FC = () => {
                       </span>
                       <div className="flex space-x-2">
                         <button className="text-blue-500 hover:text-blue-700"
+                        onClick={() =>
+                          openModal("editSubCategory", currentCategory, subCategoryDetails[subCategoryId])
+                        }
                         >
                           <FaEdit />
                         </button>
